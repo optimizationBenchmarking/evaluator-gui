@@ -1,0 +1,16 @@
+.invisible {
+  background     : transparent;
+  margin         : 0px;
+  padding        : 0px;
+  border-collapse: collapse;
+  border         : 0px none transparent;
+}
+
+.invisibleL {
+  background     : transparent;
+  margin         : 0px;
+  padding        : 0px;
+  border-collapse: collapse;
+  border         : 0px none transparent;
+  text-align     : left;
+}

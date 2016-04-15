@@ -1,0 +1,34 @@
+<%@include file="/includes/defaultHeader.jsp" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.gui.utils.Page" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.gui.controller.Handle" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.gui.utils.Encoder" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.gui.controller.ControllerUtils" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.gui.modules.evaluation.EvaluationIO" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.gui.utils.files.Loaded" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.evaluation.impl.evaluator.data.EvaluationModules" %>
+<jsp:useBean id="controller" scope="session" class="org.optimizationBenchmarking.evaluator.gui.controller.Controller" />
+
+<h1>Edit Evaluation Files</h1>
+<p>On this page, you can edit evaluation files. An evaluation file tells the
+evaluator what to do with the data it has loaded.
+You can save your changes by pressing the &quot;Save&quot; button.
+If you leave this page any un-saved changes will be discarded.</p>
+<%
+Loaded<EvaluationModules> modules = null;
+try(final Handle handle = controller.createJspHandle(pageContext)) {
+  modules = EvaluationIO.INSTANCE.executeAndLoad(request, handle);
+}
+if(modules != null) {%>
+<h2>File &quot;<%= Encoder.htmlEncode(modules.getName()) %>&quot;</h2>
+<%
+try(final Page hpage = new Page(pageContext)) {
+  EvaluationIO.INSTANCE.formPutComponentButtonHelp(hpage); %>
+<form class="invisible" action="/evaluationEdit.jsp" method="post">
+<%
+  final String prefix = hpage.newPrefix();
+  EvaluationIO.INSTANCE.formPutEditorFields(prefix, modules.getLoaded(), hpage);
+  EvaluationIO.INSTANCE.formFinalize(prefix, modules, hpage);
+%>
+</form>
+<% } } %>
+<%@include file="/includes/defaultFooter.jsp" %>

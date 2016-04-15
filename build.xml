@@ -1,0 +1,20 @@
+<project basedir="." default="build">
+	<description>
+	Build the Optimization Benchmarking Evaluator GUI.
+	</description>
+
+	<import>
+		<url url="https://raw.githubusercontent.com/optimizationBenchmarking/utils-build/master/dependencyBuilder.xml" />
+	</import>
+
+	<target name="build">
+		<sequential>
+			<buildWithDependencies githubProject="evaluator-gui">
+				<dependencies>
+				  <dependency githubProject="evaluator-evaluator" />
+					<dependency githubProject="utils-base" />
+				</dependencies>
+			</buildWithDependencies>
+		</sequential>
+	</target>
+</project>
