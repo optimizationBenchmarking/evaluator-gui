@@ -2,7 +2,6 @@
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.utils.Encoder" %>
 <%@ page import="org.optimizationBenchmarking.utils.text.textOutput.ITextOutput" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.evaluation.impl.EvaluationModuleDescriptions" %>
-<%@ page import="org.optimizationBenchmarking.evaluator.data.ModuleDescriptions" %>
 <%@ page import="org.optimizationBenchmarking.utils.text.ESequenceMode" %>
 <%@ page import="org.optimizationBenchmarking.utils.text.numbers.InTextNumberAppender" %>
 <%@ page import="org.optimizationBenchmarking.utils.text.ETextCase" %>
@@ -136,7 +135,7 @@ conclusions from the raw data.</p>
 <p>For this purpose, we apply our <em>evaluator</em>. The evaluator
 can analyze several different aspects of your data and your algorithm's
 performance. Each such aspect is encapsulated in a <em>module</em>. <%
-final ModuleDescriptions descs;
+final EvaluationModuleDescriptions descs;
 final int modCount;
 descs = EvaluationModuleDescriptions.getDescriptions(null);
 if(descs != null) {

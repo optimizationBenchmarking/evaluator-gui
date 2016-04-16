@@ -320,8 +320,10 @@
 						<manifest>
 							<addDefaultImplementationEntries />
 							<addDefaultSpecificationEntries />
-              <SplashScreen-Image>org/optimizationBenchmarking/gui/splash.png</SplashScreen-Image>
 						</manifest>
+            <manifestEntries>
+              <SplashScreen-Image>org/optimizationBenchmarking/gui/splash.png</SplashScreen-Image>
+            </manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
@@ -1028,8 +1030,8 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<finalName>evaluator</finalName>
-							<shadedArtifactId>evaluator</shadedArtifactId>
+							<finalName>evaluatorGui</finalName>
+							<shadedArtifactId>evaluatorGui</shadedArtifactId>
 							<shadedClassifierName/>
 							<createSourcesJar>true</createSourcesJar>
 							<shadeTestJar>true</shadeTestJar>
