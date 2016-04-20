@@ -137,7 +137,7 @@ can analyze several different aspects of your data and your algorithm's
 performance. Each such aspect is encapsulated in a <em>module</em>. <%
 final EvaluationModuleDescriptions descs;
 final int modCount;
-descs = EvaluationModuleDescriptions.getDescriptions(null);
+descs = EvaluationModuleDescriptions.getInstance();
 if(descs != null) {
   modCount = descs.size();
 %>Currently, there are <%
