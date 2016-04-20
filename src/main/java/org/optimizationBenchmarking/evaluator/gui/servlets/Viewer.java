@@ -250,7 +250,7 @@ public final class Viewer extends HttpServlet {
     output.prettyPrint(false);
 
     try (final OutputStreamWriter osw = new OutputStreamWriter(os)) {
-      osw.write(doc.outerHtml());
+      doc.html(osw);
     }
   }
 

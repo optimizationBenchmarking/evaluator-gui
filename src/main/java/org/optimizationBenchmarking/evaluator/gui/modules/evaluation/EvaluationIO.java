@@ -72,7 +72,7 @@ public final class EvaluationIO extends EditorModule<EvaluationModules> {
   private final ModuleDescriptions __getDescriptions(final Handle handle) {
     if (this.m_descriptions == null) {
       this.m_descriptions = EvaluationModuleDescriptions
-          .getDescriptions(handle);
+          .getInstance(handle);
     }
     return this.m_descriptions;
   }
