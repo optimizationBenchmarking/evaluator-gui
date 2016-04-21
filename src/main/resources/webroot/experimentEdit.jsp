@@ -5,7 +5,7 @@
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.controller.ControllerUtils" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.modules.experiments.ExperimentIO" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.utils.files.Loaded" %>
-<%@ page import="org.optimizationBenchmarking.experimentation.data.spec.IExperiment" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.data.spec.IExperiment" %>
 <jsp:useBean id="controller" scope="session" class="org.optimizationBenchmarking.evaluator.gui.controller.Controller" />
 
 <h1>Edit Experiment Files</h1>

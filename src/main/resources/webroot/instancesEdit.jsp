@@ -5,7 +5,7 @@
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.controller.ControllerUtils" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.modules.instances.InstancesIO" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.utils.files.Loaded" %>
-<%@ page import="org.optimizationBenchmarking.experimentation.data.spec.IInstanceSet" %>
+<%@ page import="org.optimizationBenchmarking.evaluator.data.spec.IInstanceSet" %>
 <jsp:useBean id="controller" scope="session" class="org.optimizationBenchmarking.evaluator.gui.controller.Controller" />
 
 <h1>Edit Instances Files</h1>

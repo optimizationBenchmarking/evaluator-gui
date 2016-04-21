@@ -2,10 +2,13 @@ package org.optimizationBenchmarking.evaluator.gui;
 
 import java.awt.GraphicsEnvironment;
 import java.awt.SplashScreen;
+import java.util.logging.Level;
 
 import org.optimizationBenchmarking.evaluator.gui.application.ApplicationInstance;
 import org.optimizationBenchmarking.evaluator.gui.application.ApplicationTool;
 import org.optimizationBenchmarking.utils.config.Configuration;
+import org.optimizationBenchmarking.utils.error.ErrorUtils;
+import org.optimizationBenchmarking.utils.error.RethrowMode;
 
 /** The main class for the GUI. */
 public final class Main {
@@ -18,7 +21,6 @@ public final class Main {
    * @throws Throwable
    *           if something goes wrong
    */
-  @SuppressWarnings("unused")
   public static final void main(final String[] args) throws Throwable {
 
     Configuration.setup(args);
@@ -29,7 +31,9 @@ public final class Main {
         try {
           Thread.sleep(400);
         } catch (final Throwable ignorable) {
-          // ingore
+          ErrorUtils.logError(Configuration.getGlobalLogger(),
+              Level.WARNING, "Error while waiting for browser to start.", //$NON-NLS-1$
+              ignorable, false, RethrowMode.DONT_RETHROW);
         }
       }
       Main.__closeSplash();
@@ -49,8 +53,10 @@ public final class Main {
           screen.close();
         }
       }
-    } catch (@SuppressWarnings("unused") final Throwable ignorable) {
-      // iignore
+    } catch (final Throwable ignorable) {
+      ErrorUtils.logError(Configuration.getGlobalLogger(), Level.WARNING,
+          "Error while closing splash screen.", //$NON-NLS-1$
+          ignorable, false, RethrowMode.DONT_RETHROW);
     }
   }
 }
