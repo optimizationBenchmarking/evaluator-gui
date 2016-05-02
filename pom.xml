@@ -134,8 +134,6 @@
       <version>${jetty.version}</version>
     </dependency>
     <dependency>
-      <!-- This one seems to be missing in https://github.com/jetty-project/embedded-jetty-jsp/blob/master/pom.xml 
-        - maybe that's a version issue? -->
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-servlet</artifactId>
       <version>${jetty.version}</version>
@@ -156,6 +154,20 @@
       <artifactId>apache-jstl</artifactId>
       <version>${jetty.version}</version>
       <type>pom</type>
+    </dependency>
+    
+    <!--  expression language -->
+    <dependency>    
+      <groupId>javax.el</groupId>
+      <artifactId>el-api</artifactId>
+      <version>2.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>el-impl</artifactId>
+      <version>2.2</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
