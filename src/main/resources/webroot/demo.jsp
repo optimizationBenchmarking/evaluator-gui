@@ -33,8 +33,8 @@ when downloading an example, say HTTP 503 error codes. In such a case, just try 
 a few minutes later.</p>
 <% for(Example example : examples) { %>
 <h2><%= example.getName()%></h2> 
-<p><%= example.getDescription() %></p>
-<p> Downloading the example will create a folder named <code><%= example.getId() %></code> inside <code><%=printDir%></code>.</p>
+<%= example.getDescription() %>
+<p>Downloading the example will create a folder named <code><%= example.getId() %></code> inside <code><%=printDir%></code>.</p>
 <form method="get" action="/controller.jsp">
 <input type="hidden" name="<%=ControllerUtils.PARAMETER_DEMO%>" value="<%= example.getId() %>" />
 <input type="hidden" name="<%=ControllerUtils.INPUT_CURRENT_DIR%>" value="<%=currentDir%>" />
