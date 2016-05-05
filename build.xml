@@ -11,8 +11,9 @@
 		<sequential>
 			<buildWithDependencies githubProject="evaluator-gui">
 				<dependencies>
-				  <dependency githubProject="evaluator-evaluator" />
+					<dependency githubProject="evaluator-evaluator" />
 					<dependency githubProject="utils-base" />
+					<dependency githubProject="documentation-examples-loader" />
 				</dependencies>
 			</buildWithDependencies>
 		</sequential>

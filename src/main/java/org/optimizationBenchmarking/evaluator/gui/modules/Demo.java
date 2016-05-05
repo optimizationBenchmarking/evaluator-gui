@@ -1,53 +1,26 @@
 package org.optimizationBenchmarking.evaluator.gui.modules;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 
+import org.optimizationBenchmarking.documentation.examples.Example;
+import org.optimizationBenchmarking.documentation.examples.ExampleDownloadTool;
+import org.optimizationBenchmarking.documentation.examples.ExampleJobBuilderBase;
+import org.optimizationBenchmarking.documentation.examples.ExampleListTool;
+import org.optimizationBenchmarking.evaluator.Evaluator;
 import org.optimizationBenchmarking.evaluator.gui.controller.Controller;
 import org.optimizationBenchmarking.evaluator.gui.controller.Handle;
+import org.optimizationBenchmarking.evaluator.gui.controller.Result;
+import org.optimizationBenchmarking.utils.collections.lists.ArrayListView;
 import org.optimizationBenchmarking.utils.error.ErrorUtils;
-import org.optimizationBenchmarking.utils.io.EOSFamily;
-import org.optimizationBenchmarking.utils.text.TextUtils;
-import org.optimizationBenchmarking.utils.tools.impl.process.EProcessStream;
-import org.optimizationBenchmarking.utils.tools.impl.shell.Shell;
-import org.optimizationBenchmarking.utils.tools.impl.shell.ShellBuilder;
-import org.optimizationBenchmarking.utils.tools.impl.shell.ShellTool;
 
 /** The demo class */
 public final class Demo {
 
-  /** the suffixes */
-  private static final String[] SUFFIXES;
-
-  static {
-    SUFFIXES = new String[EOSFamily.values().length];
-
-    Demo.SUFFIXES[EOSFamily.Windows.ordinal()] = ".bat";//$NON-NLS-1$
-
-    Demo.SUFFIXES[EOSFamily.MacOS.ordinal()] = //
-    Demo.SUFFIXES[EOSFamily.Linux.ordinal()] = ".sh"; //$NON-NLS-1$
-  }
-
   /** the forbidden constructor */
   private Demo() {
     ErrorUtils.doNotCall();
-  }
-
-  /**
-   * Check if the current OS is support.
-   *
-   * @return {@code true} if the current operating system is supported
-   */
-  public static final boolean isOSSupported() {
-    final EOSFamily os;
-    os = EOSFamily.DETECTED;
-    return ((os != null) && (Demo.SUFFIXES[os.ordinal()] != null));
   }
 
   /**
@@ -60,29 +33,25 @@ public final class Demo {
    * @param demo
    *          the demo
    */
-  @SuppressWarnings({ "resource", "unused" })
   public static final void install(final String currentPath,
       final String demo, final Handle handle) {
-    final EOSFamily osf;
-    final String suffix;
-    final ShellTool st;
-    final ShellBuilder sb;
-    final int exit;
-    final BufferedWriter bw;
     final Controller controller;
+    final Path root;
     Path path;
-    URL url;
-    String line;
 
     if (currentPath == null) {
       handle.failure("Current path cannot be null."); //$NON-NLS-1$
       return;
     }
+    if (demo == null) {
+      handle.failure("Demo ID cannot be null."); //$NON-NLS-1$
+      return;
+    }
 
     controller = handle.getController();
-
+    root = controller.getRootDir();
     try {
-      path = controller.getRootDir().resolve(Paths.get(currentPath));
+      path = root.resolve(Paths.get(currentPath));
     } catch (final Throwable error) {
       handle.log(Level.WARNING, ("Problem when dealing with path '" //$NON-NLS-1$
           + currentPath + '\'' + '.'), error);
@@ -96,113 +65,75 @@ public final class Demo {
       return;
     }
 
-    if (demo == null) {
-      handle.failure("Demo name cannot be null."); //$NON-NLS-1$
-      return;
-    }
-
-    osf = EOSFamily.DETECTED;
-    if ((osf == null)
-        || ((suffix = Demo.SUFFIXES[osf.ordinal()]) == null)) {
-      handle.failure(//
-          "Sorry, your operating system ('" + osf//$NON-NLS-1$
-              + "') is not supported. This does not mean that you cannot use this software or use the demos. It only means you cannot download the demo directly from within the software."); //$NON-NLS-1$
-      return;
-    }
-
     try {
-      url = new URL(//
-          "https://raw.githubusercontent.com/optimizationBenchmarking/optimizationBenchmarkingDocu/master/examples/" //$NON-NLS-1$
-              +
-              demo + "/install" + suffix);//$NON-NLS-1$
+      path = Demo.__call(ExampleDownloadTool.getInstance().use()//
+          .setDestinationPath(path)//
+          .setExampleId(demo), handle);
     } catch (final Throwable error) {
-      handle.failure(//
-          "Invalid demo name: '" + demo//$NON-NLS-1$
-              + "')."); //$NON-NLS-1$
+      handle.failure("Failed during installation of example '" //$NON-NLS-1$
+          + demo + //
+          "'. Please make sure you have a working internet connection.", //$NON-NLS-1$
+          error);
+    }
+
+    if (path == null) {
+      handle.warning("Nothing was downloaded for example '" //$NON-NLS-1$
+          + demo + //
+          "'. Maybe your software version is not supported for this example."); //$NON-NLS-1$
       return;
-    }
-
-    st = ShellTool.getInstance();
-    try {
-      st.checkCanUse();
-    } catch (final Throwable error) {
-      handle.failure(//
-          "Cannot open a shell on this computer, so we cannot use a shell to download the demo."); //$NON-NLS-1$
-      return;
-    }
-
-    switch (st.getType()) {
-      case DOS: {
-        if (EOSFamily.DETECTED != EOSFamily.Windows) {
-          handle.failure(//
-              "DOS-type shell requires Windows-type operating system, but found " //$NON-NLS-1$
-                  + EOSFamily.DETECTED);
-          return;
-        }
-        break;
-      }
-      case BOURNE: {
-        if ((EOSFamily.DETECTED != EOSFamily.Linux)
-            && (EOSFamily.DETECTED != EOSFamily.MacOS)) {
-          handle.failure(//
-              "Bourne-type shell requires Linux- or MacOS-type operating system, but found " //$NON-NLS-1$
-                  + EOSFamily.DETECTED);
-          return;
-        }
-        break;
-      }
-      default: {
-        handle.failure(//
-            "Cannot handle shell type " + st.getType());//$NON-NLS-1$
-        return;
-      }
-    }
-
-    sb = st.use();
-    sb.setDirectory(path);
-    sb.setLogger(handle);
-    sb.setStdErr(EProcessStream.REDIRECT_TO_LOGGER);
-    sb.setStdOut(EProcessStream.REDIRECT_TO_LOGGER);
-    sb.setStdIn(EProcessStream.AS_STREAM);
-    try (final Shell sh = sb.create()) {
-
-      bw = sh.getStdIn();
-      try {
-        try (final InputStream is = url.openStream()) {
-          try (final InputStreamReader isr = new InputStreamReader(is)) {
-            try (final BufferedReader br = new BufferedReader(isr)) {
-              while ((line = br.readLine()) != null) {
-                if ((line = TextUtils.prepare(line)) != null) {
-                  bw.write(line);
-                  bw.newLine();
-                }
-              }
-            }
-          }
-        }
-        bw.flush();
-      } catch (final Throwable io) {
-        handle.failure(//
-            "Error while loading the installation commands of the example from '" //$NON-NLS-1$
-                +
-                url + "' into the shell.", //$NON-NLS-1$
-            io);
-      }
-
-      exit = sh.waitFor();
-      if (exit != 0) {
-        handle.failure("Shell closed with exit code " + exit);//$NON-NLS-1$
-      } else {
-        handle.success(//
-            "Installation of example '" + demo + //$NON-NLS-1$
-                "' has seemingly been successful.");//$NON-NLS-1$
-      }
-    } catch (final Throwable error) {
-      handle.failure("Failed during communication with shell.", error); //$NON-NLS-1$
     }
 
     if (!(path.equals(controller.getCurrentDir()))) {
-      controller.cdAbsolute(handle, currentPath);
+      controller.cdAbsolute(handle, root.relativize(path).toString());
     }
+  }
+
+  /**
+   * call an example job base
+   *
+   * @param builder
+   *          the builder
+   * @param handle
+   *          the handle
+   * @return the result
+   * @throws Exception
+   *           if something goes wrong
+   */
+  private static final <R, T extends ExampleJobBuilderBase<R, ?, ?>> R __call(
+      final T builder, final Handle handle) throws Exception {
+    return builder.setLogger(handle)//
+        .setSuccessLevel(Result.SUCCESS)//
+        .setFailureLevel(Result.FAILURE)//
+        .setVersion(Evaluator.getInstance().getProjectVersion()).create()
+        .call();
+  }
+
+  /**
+   * Obtain the examples for the current version of our system.
+   *
+   * @param handle
+   *          the handle
+   * @return the examples
+   */
+  public static final ArrayListView<Example> getExamples(
+      final Handle handle) {
+    ArrayListView<Example> list;
+
+    list = null;
+    try {
+      list = Demo.__call(ExampleListTool.getInstance().use(), handle);
+    } catch (final Throwable error) {
+      handle.failure(//
+          "Failed to download the example list. Maybe there is a problem with the internet connection.", //$NON-NLS-1$
+          error);
+      return null;
+    }
+
+    if ((list == null) || (list.isEmpty())) {
+      handle.warning(//
+          "No examples found, maybe your software version is not supported."); //$NON-NLS-1$
+      return null;
+    }
+    return list;
   }
 }

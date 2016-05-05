@@ -83,6 +83,14 @@ public enum EFSElementType {
   XHTML(true, "xhtml", //$NON-NLS-1$
       "A web page in the XHTML format."), //$NON-NLS-1$
 
+  /** a png file */
+  PNG(true, "png", //$NON-NLS-1$
+      "A png image, i.e., a losslessly-compressed raster graphic."), //$NON-NLS-1$
+
+  /** a jpg file */
+  JPEG(true, "jpg", //$NON-NLS-1$
+      "A jpg image, i.e., a lossy-compressed raster graphic."), //$NON-NLS-1$
+
   ;
 
   /** the map */
@@ -105,6 +113,8 @@ public enum EFSElementType {
         XHTML);
     EFSElementType.MAP.put(ETextFileType.TXT, TEXT);
     EFSElementType.MAP.put(ETextFileType.CSV, CSV);
+    EFSElementType.MAP.put(EGraphicFormat.PNG, PNG);
+    EFSElementType.MAP.put(EGraphicFormat.JPEG, JPEG);
   }
 
   /** is this a file type? */

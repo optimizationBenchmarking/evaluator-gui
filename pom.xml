@@ -108,6 +108,12 @@
 			<version>${evaluator-evaluator.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.optimizationBenchmarking</groupId>
+			<artifactId>documentation-examples-loader</artifactId>
+			<version>${evaluator-evaluator.version}</version>
+		</dependency>
+
 
 		<!-- expression language: This must come before the rest, otherwise the 
 			JUnit tests might fail. -->
