@@ -5,11 +5,6 @@
 <%@ page import="org.optimizationBenchmarking.documentation.examples.Example" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.gui.modules.Demo" %>
 <%@ page import="org.optimizationBenchmarking.evaluator.Evaluator" %>
-<%@ page import="org.optimizationBenchmarking.evaluator.Evaluator" %>
-<%@ page import="org.optimizationBenchmarking.evaluator.Evaluator" %>
-<%@ page import="org.optimizationBenchmarking.evaluator.Evaluator" %>
-<%@ page import="org.optimizationBenchmarking.evaluator.Evaluator" %>
-<%@ page import="org.optimizationBenchmarking.evaluator.Evaluator" %>
 <jsp:useBean id="controller" scope="session" class="org.optimizationBenchmarking.evaluator.gui.controller.Controller" />
 <%@include file="/includes/defaultHeader.jsp" %>
 <h1>Example Data</h1>

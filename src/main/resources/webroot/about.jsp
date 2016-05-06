@@ -31,17 +31,17 @@ the <a href="https://github.com/optimizationBenchmarking/optimizationBenchmarkin
 </table>
 <p><a href="/this">Here</a> you can download a copy of the <code>jar</code> of
 this software you are using right now, but it is recommended to
-download the most recent <a href="https://github.com/optimizationBenchmarking/optimizationBenchmarkingGui/releases">release</a>.</p>
+download the most recent <a href="https://github.com/optimizationBenchmarking/evaluator-gui/releases">release</a>.</p>
 <h2>Web</h2>
 <p>This project is developed by the <a href="http://www.optimizationbenchmarking.org">optimizationBenchmarking</a>
 initiative. Our website can be found at <a href="http://www.optimizationbenchmarking.org">http://www.optimizationbenchmarking.org</a>
 and <a href="http://www.github.com/optimizationBenchmarking">http://www.github.com/optimizationBenchmarking</a>.
-</p><p>The specific website for this software project is <a href="http://optimizationbenchmarking.github.io/optimizationBenchmarking/">http://optimizationbenchmarking.github.io/optimizationBenchmarking/</a>.</p>
+</p><p>The specific website for this software project is <a href="http://optimizationbenchmarking.github.io/">http://optimizationbenchmarking.github.io/</a>.</p>
 <p>Our software is GPL-licensed open source, and can be found at <a href="http://www.github.com">GitHub</a> under the following projects:</p>
 <ul>
-<li><a href="https://github.com/optimizationBenchmarking/optimizationBenchmarking">core command-line argument</a></li>
-<li><a href="https://github.com/optimizationBenchmarking/optimizationBenchmarkingGui">this GUI</a></li>
-<li><a href="https://github.com/optimizationBenchmarking/optimizationBenchmarkingDocu">documentation</a></li>
+<li><a href="https://github.com/optimizationBenchmarking/evaluator-evaluator">core command-line argument</a></li>
+<li><a href="https://github.com/optimizationBenchmarking/evaluator-gui">this GUI</a></li>
+<li><a href="https://optimizationBenchmarking.github.io/documentation-examples/">documentation</a></li>
 <li>predecessor project: <a href="https://github.com/optimizationBenchmarking/tspSuite">tspSuite</a></li>
 </ul>
 <h2>Support and Funding</h2>

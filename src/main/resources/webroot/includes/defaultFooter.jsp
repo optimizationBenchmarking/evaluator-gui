@@ -5,11 +5,10 @@
 Version&nbsp;<%=ApplicationTool.getInstance().getProjectVersion()%>. Server&nbsp;time:&nbsp;<%= ESimpleDateFormat.DATE_TIME.formatNow() %>.
 </p>
 <p class="footerLinks"> 
-[<a href="http://optimizationBenchmarking.github.io/optimizationBenchmarking">project page</a>] &bull;
-[<a href="https://github.com/optimizationBenchmarking/optimizationBenchmarking">GitHub page</a>] &bull;
-[<a href="http://optimizationbenchmarking.github.io/optimizationBenchmarking/repo/">downloads</a>] &bull;
-[<a href="http://optimizationbenchmarking.github.io/optimizationBenchmarking/atom.xml">atom feed</a>] &bull;
-[<a href="http://optimizationbenchmarking.github.io/optimizationBenchmarking/rss.xml">RSS feed</a>]
+[<a href="http://optimizationBenchmarking.github.io/">group page</a>] &bull;
+[<a href="https://github.com/optimizationBenchmarking/">GitHub page</a>] &bull;
+[<a href="http://optimizationbenchmarking.github.io/atom.xml">atom feed</a>] &bull;
+[<a href="http://optimizationbenchmarking.github.io/rss.xml">RSS feed</a>]
 </p></section>
 <aside id="sidebar">
 <% Menu.renderMenu(request, out); %>

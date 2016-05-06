@@ -19,8 +19,7 @@ encoded = Encoder.htmlEncode(out);
 try(final Handle handle = controller.createJspHandle(pageContext)) {    
   final Path path = DownloadJar.getAppPath(handle);
   if(path == null) {
-    pathName = ("optimizationBenchmarkingGui-" +
-      ApplicationTool.getInstance().getProjectVersion() + "-full.jar");
+    pathName = "evaluatorGui";
   } else {
     pathName = PathUtils.getName(path);
   }
@@ -61,6 +60,6 @@ the command line. To this command, you can add the following parameters
 <%}%>
 <p><a href="/this">Here</a> you can download a copy of the <code>jar</code> of
 this software you are using right now, but it is recommended to
-download the most recent <a href="https://github.com/optimizationBenchmarking/optimizationBenchmarkingGui/releases">release</a>.</p>
+download the most recent <a href="https://github.com/optimizationBenchmarking/evaluator-gui/releases">release</a>.</p>
 
 <%@include file="/includes/defaultFooter.jsp" %>

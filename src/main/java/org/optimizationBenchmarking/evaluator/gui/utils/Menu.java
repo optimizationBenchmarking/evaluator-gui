@@ -16,6 +16,7 @@ public final class Menu {
       new Menu("/demo.jsp", "examples"), //$NON-NLS-1$//$NON-NLS-2$
       new Menu("/help.jsp", "help", //$NON-NLS-1$//$NON-NLS-2$
           new Menu("/help/system.jsp", "the system"), //$NON-NLS-1$//$NON-NLS-2$
+          new Menu("/help/howTos.jsp", "how-tos"), //$NON-NLS-1$//$NON-NLS-2$
           new Menu("/help/process.jsp", "the process"), //$NON-NLS-1$//$NON-NLS-2$
           new Menu("/help/fileTypes.jsp", "file types") //$NON-NLS-1$//$NON-NLS-2$
       ), //
