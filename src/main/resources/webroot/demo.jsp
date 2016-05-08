@@ -21,15 +21,19 @@ try(final Handle handle = controller.createJspHandle(pageContext)) {
 if(examples != null) {
 final String currentDir = Encoder.htmlEncode(controller.getRootDir().relativize(controller.getCurrentDir()).toString());
 final String printDir   = ('/' + currentDir);  %>
+<h2><%=examples.size()%> Examples Ready for Download and Installation</h2>
 <p>If you want, you can now pick any of the <%= examples.size() %> examples and download them into the current folder (<code><%=printDir%></code>).
 After the download, this folder will contain a new folder named after the example. If this folder already exists,
-the result may be unpredictable, so be careful. Also, sometimes there may be sporadic network errors
+the result may be unpredictable, so be careful. Also, sometimes there may be network errors
 when downloading an example, say HTTP 503 error codes. In such a case, just try downloading the example again
 a few minutes later.</p>
+<ul>
 <% for(Example example : examples) { %>
-<h2><%= example.getName()%></h2> 
+<li><a href="#<%=example.getId()%>"><%= example.getName()%></a></li><%}%>
+</ul>
+<% for(Example example : examples) { %>
+<h2 id="<%=example.getId()%>"><%= example.getName()%></h2> 
 <%= example.getDescription() %>
-<p>Downloading the example will create a folder named <code><%= example.getId() %></code> inside <code><%=printDir%></code>.</p>
 <form method="get" action="/controller.jsp">
 <input type="hidden" name="<%=ControllerUtils.PARAMETER_DEMO%>" value="<%= example.getId() %>" />
 <input type="hidden" name="<%=ControllerUtils.INPUT_CURRENT_DIR%>" value="<%=currentDir%>" />
