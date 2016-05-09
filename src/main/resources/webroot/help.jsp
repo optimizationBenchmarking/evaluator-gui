@@ -22,7 +22,8 @@ a useful format so that we can import them in a paper draft. I want to help
 you with all of that: I can load the data for you. I draw the diagrams for you.
 In a format that you can import in LaTeX. Actually, I write whole reports for
 you, including detailed analysis, descriptions, and figures, which you can
-directly re-use in your publications.  
+directly re-use in your publications. A small set of slides explaining the
+basics of this project can be found <a href="https://circleci.com/api/v1/project/optimizationBenchmarking/documentation-intro-slides/latest/artifacts/0/$CIRCLE_ARTIFACTS/intro-slides.pdf?branch=master">here</a>.  
 </p>
 <h2>Getting Started</h2>
 <p>
@@ -33,6 +34,7 @@ If you are new to this system, the I suggest to do the following:
 (by <code>cd</code>-ing into it). Let's call this folder <code>x</code>.</li>
 <li>Then use the <a href="/demo.jsp">examples</a> page to download one of the
 example data sets.</li>
+<li>You can also read the <a href="/help/howTos.jsp">how-tos</a> to find out how to do many things.</li>
 <li>Use again the <a href="/controller.jsp">control center</a> to enter folder <code>x/evaluation</code>.
 Select one of the files named <code>configFor...xml</code> (by checking the box to the right of it).
 Then choose the <code>evaluate</code> action to run the evaluator for the example data set.</li>

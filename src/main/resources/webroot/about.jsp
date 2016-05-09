@@ -4,12 +4,19 @@
 <jsp:useBean id="controller" scope="session" class="org.optimizationBenchmarking.evaluator.gui.controller.Controller" />
 <h1>About</h1>
 <p>
-This is the graphical user interface (<a href="https://github.com/optimizationBenchmarking/optimizationBenchmarkingGui">GUI</a>) of
-the <a href="https://github.com/optimizationBenchmarking/optimizationBenchmarking">optimizationBenchmarking</a> core project.
+This is the graphical user interface (<a href="https://github.com/optimizationBenchmarking/evaluator-gui">GUI</a>) of
+the <a href="https://github.com/optimizationBenchmarking/evaluator-evaluator">evaluator</a> core project.
 </p>
-<h2>Version</h2>
-<p>This software has the following components:</p>
 <table class="invisibleL">
+<tr class="invisibleL"><td colspan="2" class="invisibleL"><h2>Server Information</h2></td></tr>
+<tr class="invisibleL"><th class="invisibleL">Server&nbsp;Name:</th><td class="invisibleL"><code><%=request.getLocalName()%></code></td></tr>
+<tr class="invisibleL"><th class="invisibleL">Server&nbsp;Address:</th><td class="invisibleL"><code><%=request.getLocalAddr()%></code></td></tr>
+<tr class="invisibleL"><th class="invisibleL">Server&nbsp;Port:</th><td class="invisibleL"><code><%=request.getLocalPort()%></code></td></tr>
+<tr class="invisibleL"><th class="invisibleL">Your&nbsp;Computer's&nbsp;Name:</th><td class="invisibleL"><code><%=request.getRemoteHost()%></code></td></tr>
+<tr class="invisibleL"><th class="invisibleL">Your&nbsp;Computer's&nbsp;Address:</th><td class="invisibleL"><code><%=request.getRemoteAddr()%></code></td></tr>
+<tr class="invisibleL"><th class="invisibleL">Your&nbsp;Computer's&nbsp;Port:</th><td class="invisibleL"><code><%=request.getRemotePort()%></code></td></tr>
+<tr class="invisibleL"><td colspan="2" class="invisibleL"><h2>Version</h2></td></tr>
+<tr class="invisibleL"><td colspan="2" class="invisibleL">This software has the following components:</td></tr>
 <tr class="invisibleL"><td colspan="2" class="invisibleL"><h3>GUI</h3></td></tr>
 <% ApplicationTool app = ApplicationTool.getInstance(); %>
 <tr class="invisibleL"><th class="invisibleL">name:&nbsp;</th><td class="invisibleL"><%= app.getProjectName()%></td></tr>
