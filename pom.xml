@@ -4,7 +4,7 @@
 
 	<groupId>org.optimizationBenchmarking</groupId>
 	<artifactId>evaluator-gui</artifactId>
-	<version>0.8.5-SNAPSHOT</version>
+	<version>0.8.5</version>
 	<packaging>jar</packaging>
 	<name>The evaluator GUI.</name>
 	<description>The optimizationBenchmarking.org evaluator GUI.</description>
