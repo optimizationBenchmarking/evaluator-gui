@@ -29,10 +29,10 @@ when downloading an example, say HTTP 503 error codes. In such a case, just try 
 a few minutes later.</p>
 <ul>
 <% for(Example example : examples) { %>
-<li><a href="#<%=example.getId()%>"><%= example.getName()%></a></li><%}%>
+<li><a href="#<%=example.getId()%>"><%= example.getName()%></a> [<a href="<%=example.getInfoUri()%>">more info</a>]</li><%}%>
 </ul>
 <% for(Example example : examples) { %>
-<h2 id="<%=example.getId()%>"><%= example.getName()%></h2> 
+<h3 id="<%=example.getId()%>"><%= example.getName()%>&nbsp;<span style="font-size:80%">[<a href="<%=example.getInfoUri()%>">info</a>]</span></h3> 
 <%= example.getDescription() %>
 <form method="get" action="/controller.jsp">
 <input type="hidden" name="<%=ControllerUtils.PARAMETER_DEMO%>" value="<%= example.getId() %>" />
