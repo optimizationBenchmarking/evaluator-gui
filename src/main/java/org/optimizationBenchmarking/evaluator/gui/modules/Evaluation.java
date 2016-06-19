@@ -141,7 +141,7 @@ public final class Evaluation {
           try {
             Evaluator.getInstance().use().configure(config)
                 .setFileProducerListener(created).setLogger(handle)
-                .create();
+                .create().run();
             handle.success(//
                 "The evaluation procedure has been completed successfully (seemingly).");//$NON-NLS-1$
           } catch (final Throwable error) {
