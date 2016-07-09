@@ -210,8 +210,9 @@ public final class Download extends HttpServlet {
         Header.defaultHeader(response);
         response.setHeader("Content-Disposition", //$NON-NLS-1$
             "attachment; filename=\"" + //$NON-NLS-1$
-                PathUtils
-                    .sanitizePathComponent(PathUtils.getName(done) + '"'));
+                PathUtils.sanitizePathComponent(PathUtils.getName(done),
+                    false)
+                + '"');
         Files.copy(done, response.getOutputStream());
         return;
       }
@@ -222,9 +223,8 @@ public final class Download extends HttpServlet {
     if (root.equals(archiveRoot) || (root.startsWith(archiveRoot))) {
       name = "data.zip";//$NON-NLS-1$
     } else {
-      name = (PathUtils
-          .sanitizePathComponent(PathUtils.getName(archiveRoot))//
-          + ".zip");//$NON-NLS-1$
+      name = (PathUtils.sanitizePathComponent(
+          PathUtils.getName(archiveRoot), false) + ".zip");//$NON-NLS-1$
     }
 
     response.setContentType("application/zip"); //$NON-NLS-1$
