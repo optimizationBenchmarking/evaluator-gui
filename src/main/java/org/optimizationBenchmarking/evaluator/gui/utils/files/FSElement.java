@@ -509,7 +509,7 @@ public class FSElement extends FileDesc implements Comparable<FSElement> {
           set.toArray(elements);
         }
         Arrays.sort(elements);
-        return new ArraySetView<>(elements);
+        return new ArraySetView<>(elements, false);
       }
     }
 

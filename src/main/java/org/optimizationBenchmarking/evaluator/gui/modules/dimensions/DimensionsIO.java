@@ -90,101 +90,103 @@ public final class DimensionsIO extends EditorModule<IDimensionSet> {
   private static final ArrayListView<DefinitionElement> DIMENSION_DATA_TYPES;
 
   static {
-    DefinitionElement[] de;
+    DefinitionElement[] definitionElements;
     int i;
 
-    de = new DefinitionElement[EDimensionType.INSTANCES.size()];
+    definitionElements = new DefinitionElement[EDimensionType.INSTANCES
+        .size()];
     i = 0;
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(EDimensionType.ITERATION_FE), //
         "A machine-independent time measure in terms of objective function evaluations (FEs). An objective function evaluation corresponds to a fully created solution which was passed to the objective function. One FE may have different real time costs for different algorithms. In the Traveling Salesman Problem, for instance, some local search steps can be performed in O(1), crossovers in an Evolutionary Algorithm may take O(n), and a solution creation in an Ant Colony Optimization algorithm may take O(n\u0062) steps, where 'n' is the problem scale. Sometimes there may exist a way to measure runtime in an algorithm-independent fashion which is more precise, i.e., a sub-FE measure."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(//
             EDimensionType.ITERATION_SUB_FE), //
         " A machine-independent time measure with a granularity below that of FEs. Such a time measure should be the fairest machine-independent measure to compare different algorithms."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(//
             EDimensionType.ITERATION_ALGORITHM_STEP), //
         "A machine-independent time measurement in algorithm steps. Such measurements are only comparable amongst equivalent algorithm configurations. For instance, in a Genetic Algorithm, an algorithm step may be one generation. Generation counts are only comparable for the same population sizes and operators. Instead of counting generations, one would therefore rather measure runtime in terms of FEs."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(//
             EDimensionType.RUNTIME_CPU), //
         "The dimension represents a time measurement based on CPU clock time. Such measurements are only comparable for measurements taken on the same computer, since they are machine dependent. The reason is that one machine M1 may be faster than another one (say, M2), it may perform many more algorithm steps within the same amount of seconds than the other. Thus, if an algorithm A1 executed M1 gets better results than algorithm A2 executed on M2 in the same time, we cannot make any assumption about which of them is better."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(//
             EDimensionType.RUNTIME_NORMALIZED), //
         "In order to mitigate the machine dependency of CPU time measures, we can normalize them with a machine-dependent performance indicator. Such a performance indicator should be proportional (or inverse-proportional) to how fast a machine can execute algorithms (of a given family). Such a normalization procedure makes runtime time measurements based on real time comparable, even if they stem from different machines. However, we can never make real time measurements fully unbiased, as there may always be stuff such as scheduling anomalies, other processes running on the same computers, interferences by the Java virtual machines, influences of swapping and paging, hard drive access issues, etc., that may bias them."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(//
             EDimensionType.QUALITY_PROBLEM_DEPENDENT), //
         "A problem-dependent quality measure, such as objective values. The values in this dimension can only be compared for the same problem."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionTypeParser.getHumanReadable(//
             EDimensionType.QUALITY_PROBLEM_INDEPENDENT), //
         "A problem-independent quality measure, such as normalized objective values."); //$NON-NLS-1$
 
-    DIMENSION_TYPES = new ArrayListView<>(de);
+    DIMENSION_TYPES = new ArrayListView<>(definitionElements, false);
 
-    de = new DefinitionElement[EDimensionDirection.INSTANCES.size()];
+    definitionElements = new DefinitionElement[EDimensionDirection.INSTANCES
+        .size()];
     i = 0;
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionDirectionParser.getHumanReadable(//
             EDimensionDirection.INCREASING), //
         "The values of this dimension are (non-strictly) increasing, i.e., (1, 2, 2, 3, 4) is a valid sequence of values, while (1, 2, 1, 3, 4) is not. Many runtime measures based on actually consumed CPU time behave like, since multiple things may happen within one (real) time unit due to the limited resolution of computer clocks."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionDirectionParser.getHumanReadable(//
             EDimensionDirection.INCREASING_STRICTLY), //
         "The values of this dimension are strictly increasing, i.e., (1, 2, 3, 4, 5) is a valid sequence of values, while (1, 2, 2, 3, 4) is not. Many algorithm-step based runtime metrics, like countine FEs, behave like that."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionDirectionParser.getHumanReadable(//
             EDimensionDirection.DECREASING), //
         "The values of this dimension are (non-strictly) decreasing, i.e., (5, 4, 4, 3, 1) is a valid sequence of values, while (5, 4, 5, 3, 1) is not. Quality dimensions like the 'best-so-far measured objective value' (updated only when improvements are discovered) behave like that."); //$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         DimensionDirectionParser.getHumanReadable(//
             EDimensionDirection.DECREASING_STRICTLY), //
         "The values of this dimension are strictly decreasing, i.e., (5, 4, 3, 2, 1) is a valid sequence of values, while (5, 4, 4, 3, 1) is not."); //$NON-NLS-1$
 
-    DIMENSION_DIRECTIONS = new ArrayListView<>(de);
+    DIMENSION_DIRECTIONS = new ArrayListView<>(definitionElements, false);
 
-    de = new DefinitionElement[6];
+    definitionElements = new DefinitionElement[6];
     i = 0;
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         PrimitiveTypeParser.getHumanReadable(//
             EPrimitiveType.BYTE), //
         "A byte is a signed, 8-bit integer, with values ranging at most from " //$NON-NLS-1$
             + Byte.MIN_VALUE + " to " + Byte.MAX_VALUE + '.');//$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         PrimitiveTypeParser.getHumanReadable(//
             EPrimitiveType.SHORT), //
         "A short is a signed, 16-bit integer, with values ranging at most from " //$NON-NLS-1$
             + Short.MIN_VALUE + " to " + Short.MAX_VALUE + '.');//$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         PrimitiveTypeParser.getHumanReadable(//
             EPrimitiveType.INT), //
         "An int is a signed, 32-bit integer, with values ranging at most from " //$NON-NLS-1$
             + Integer.MIN_VALUE + " to " + Integer.MAX_VALUE + '.');//$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         PrimitiveTypeParser.getHumanReadable(//
             EPrimitiveType.LONG), //
         "A long is a signed, 64-bit integer, with values ranging at most from " //$NON-NLS-1$
             + Long.MIN_VALUE + " to " + Long.MAX_VALUE + '.');//$NON-NLS-1$
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         PrimitiveTypeParser.getHumanReadable(//
             EPrimitiveType.FLOAT), //
         "A float is a 32-bit floating point number with the smallest positve representable value " //$NON-NLS-1$
@@ -192,7 +194,7 @@ public final class DimensionsIO extends EditorModule<IDimensionSet> {
             + " and the largest finite positive representable value " + //$NON-NLS-1$
             Float.MAX_VALUE + '.');
 
-    de[i++] = new DefinitionElement(
+    definitionElements[i++] = new DefinitionElement(
         PrimitiveTypeParser.getHumanReadable(//
             EPrimitiveType.DOUBLE), //
         "A double is a 64-bit floating point number with the smallest positve representable value " //$NON-NLS-1$
@@ -200,7 +202,7 @@ public final class DimensionsIO extends EditorModule<IDimensionSet> {
             + " and the largest finite positive representable value " + //$NON-NLS-1$
             Double.MAX_VALUE + '.');
 
-    DIMENSION_DATA_TYPES = new ArrayListView<>(de);
+    DIMENSION_DATA_TYPES = new ArrayListView<>(definitionElements, false);
   }
 
   /** the forbidden constructor */

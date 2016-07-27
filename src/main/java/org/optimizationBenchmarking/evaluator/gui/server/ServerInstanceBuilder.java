@@ -366,7 +366,8 @@ public final class ServerInstanceBuilder
 
     sci = new JettyJasperInitializer();
     initializer = new ContainerInitializer(sci, null);
-    return new ArrayListView<>(new ContainerInitializer[] { initializer });
+    return new ArrayListView<>(new ContainerInitializer[] { initializer },
+        false);
   }
 
   /**
