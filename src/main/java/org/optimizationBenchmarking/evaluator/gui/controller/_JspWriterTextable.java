@@ -33,7 +33,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append CharSequence to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
     return this;
@@ -48,7 +48,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append CharSequence to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
     return this;
@@ -62,7 +62,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append char to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
     return this;
@@ -76,7 +76,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append String to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -90,7 +90,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append String to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -103,7 +103,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append char[] to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -117,7 +117,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append char[] to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -130,7 +130,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append byte to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -143,7 +143,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append short to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -156,7 +156,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append int to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -169,7 +169,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append long to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -182,7 +182,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append float to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -195,7 +195,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append double to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -208,7 +208,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append boolean to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -221,7 +221,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append Object to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -234,7 +234,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to append line break to " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }
@@ -247,7 +247,7 @@ final class _JspWriterTextable extends AbstractTextOutput {
     } catch (final Throwable ioe) {
       RethrowMode.AS_RUNTIME_EXCEPTION.rethrow((//
           "Error while trying to flush " //$NON-NLS-1$
-              + TextUtils.className(this.getClass())),
+              + TextUtils.className(this)),
           true, ioe);
     }
   }

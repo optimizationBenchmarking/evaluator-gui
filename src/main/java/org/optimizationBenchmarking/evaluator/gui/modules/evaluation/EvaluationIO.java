@@ -123,7 +123,7 @@ public final class EvaluationIO extends EditorModule<EvaluationModules> {
       out.append("\" value=\"");//$NON-NLS-1$
       encoded.append(modulePrefix);
       out.append(EvaluationIO.DEF_SEP);
-      encoded.append(TextUtils.className(me.getModule().getClass()));
+      encoded.append(TextUtils.className(me.getModule()));
       out.append("\"/>");//$NON-NLS-1$
 
       ConfigIO.INSTANCE.formPutEditorFields(modulePrefix, //
