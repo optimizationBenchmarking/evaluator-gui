@@ -16,6 +16,7 @@ import org.optimizationBenchmarking.utils.config.ConfigurationPropertiesInput;
 import org.optimizationBenchmarking.utils.config.ConfigurationXMLInput;
 import org.optimizationBenchmarking.utils.error.ErrorUtils;
 import org.optimizationBenchmarking.utils.io.paths.PathUtils;
+import org.optimizationBenchmarking.utils.text.TextUtils;
 import org.optimizationBenchmarking.utils.tools.impl.abstr.ProducedFileSet;
 
 /** A class performing the evaluation procedure. */
@@ -92,8 +93,11 @@ public final class Evaluation {
       final Handle handle, final ProducedFileSet created) {
     final Path path;
     final Controller controller;
+    final long start;
     String extension;
     Configuration config;
+
+    start = System.currentTimeMillis();
 
     if (relPath != null) {
       if (handle.isLoggable(Level.INFO)) {
@@ -143,11 +147,17 @@ public final class Evaluation {
                 .setFileProducerListener(created).setLogger(handle)
                 .create().run();
             handle.success(//
-                "The evaluation procedure has been completed successfully (seemingly).");//$NON-NLS-1$
+                "The evaluation procedure has been completed successfully (seemingly) after "//$NON-NLS-1$
+                    + TextUtils.durationToString(
+                        System.currentTimeMillis() - start)
+                    + '.');
           } catch (final Throwable error) {
             handle.failure(//
                 "Failed to run evaluation process based on configuration file '" //$NON-NLS-1$
-                    + relPath + '\'' + '.',
+                    + relPath + "' after "//$NON-NLS-1$
+                    + TextUtils.durationToString(
+                        System.currentTimeMillis() - start)
+                    + '.',
                 error);
             return;
           }
