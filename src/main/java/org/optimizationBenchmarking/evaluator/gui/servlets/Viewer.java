@@ -275,9 +275,11 @@ public final class Viewer extends HttpServlet {
     final Path path;
     final String type;
     final boolean isHTML, isXHTML;
+    boolean shouldRedirect;
     String root;
 
     controller = ControllerUtils.getController(req);
+    shouldRedirect = true;
     if (controller != null) {
       try (final Handle handle = controller.createServletHandle()) {
         view = req.getParameter(ControllerUtils.PARAMETER_VIEW);
@@ -310,6 +312,7 @@ public final class Viewer extends HttpServlet {
                 } else {
                   Files.copy(path, resp.getOutputStream());
                 }
+                shouldRedirect = false;
 
                 handle.success("Successfully provided file '" + //$NON-NLS-1$
                     view + '\'' + '.');
@@ -328,6 +331,8 @@ public final class Viewer extends HttpServlet {
       }
     }
 
-    resp.sendRedirect("/controller.jsp");//$NON-NLS-1$
+    if (shouldRedirect) {
+      resp.sendRedirect("/controller.jsp");//$NON-NLS-1$
+    }
   }
 }
