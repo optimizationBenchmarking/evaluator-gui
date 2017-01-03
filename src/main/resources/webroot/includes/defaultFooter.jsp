@@ -13,10 +13,16 @@ Version&nbsp;<%=ApplicationTool.getInstance().getProjectVersion()%>. Server&nbsp
 <aside id="sidebar">
 <% Menu.renderMenu(request, out); %>
 <div class="asideBottom">
-<div class="ustcLogo"><img src="/images/ustcLogo.png" style="width:140px;height:140px;" /></div>
+<div class="logo"><a href="http://iao.hfuu.edu.cn"><img src="/images/iaoLogo.png" style="width:140px;height:122px;" /></a></div>
+<div class="logo"><a href="http://www.hfuu.edu.cn"><img src="/images/hfuuLogo.png" style="width:140px;height:140px;" /></a></div>
+<div class="logo"><a href="http://www.ustc.edu.cn"><img src="/images/ustcLogo.png" style="width:140px;height:140px;" /></a></div>
 <div class="support">
-Developed at the University of Science and Technology of China (<a href="http://www.ustc.edu.cn/">USTC</a>).
-Supported by the Fundamental Research Funds for the Central Universities.
+Developed at the <a href="http://iao.hfuu.edu.cn">Institute of Applied Optimization</a> of
+the Faculty of Computer Science and Technology of
+the <a href="http://www.hfuu.edu.cn">Hefei University</a>
+and
+the University of Science and Technology of China (<a href="http://www.ustc.edu.cn/">USTC</a>).
+Supported by NSFC Project 61673359 and the Fundamental Research Funds for the Central Universities.
 </div></div>
 </aside>
 </div></div></body></html>

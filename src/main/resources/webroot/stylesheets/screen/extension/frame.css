@@ -63,8 +63,10 @@ p.footerLinks {
   margin-top    : 0.3em;
 }
 
-div.ustcLogo {
+div.logo {
   text-align    : center;
+  margin-bottom : 20px;
+  margin-top    : 20px;
 }
 
 div.support {
