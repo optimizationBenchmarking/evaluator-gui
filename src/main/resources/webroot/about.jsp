@@ -52,21 +52,23 @@ and <a href="http://www.github.com/optimizationBenchmarking">http://www.github.c
 <li>predecessor project: <a href="https://github.com/optimizationBenchmarking/tspSuite">tspSuite</a></li>
 </ul>
 <h2>Support and Funding</h2>
-<p>The main work in this project is conducted by Dr. Thomas Weise at the
-University of Science and Technology of China with support from the
-Fundamental Research Funds for the Central Universities. Further
+<p>The main work in this project is conducted by Prof. Dr. Thomas Weise at the
+Institute of Applied Optimization (IAO) of the Hefei University
+with support from
+NSFC Project 61673359 and the Fundamental Research Funds for the Central Universities.
+Further
 support is provided by the Faculty Strategic Initiatives Research Fund (SIRF) of the
 University of Newcastle and Dr. Raymond Chiong.</p>
 <h2 id="contact">Contact</h2>
 <table class="invisibleL">
-<tr class="invisibleL"><th class="invisibleL" colspan="2">Dr. Thomas Weise</th></tr>
-<tr class="invisibleL"><td class="invisibleL" colspan="2">Nature Inspired Computation and Applications Laboratory (NICAL)</td></tr>
-<tr class="invisibleL"><td class="invisibleL" colspan="2">USTC-Birmingham Joint Research Institute in Intelligent Computation and Its Applications (<a href="http://ubri.ustc.edu.cn">UBRI</a>)</td></tr>
-<tr class="invisibleL"><td class="invisibleL" colspan="2">School of Computer Science and Technology (<a href="http://cs.ustc.edu.cn/">SCST</a>)</td></tr>
-<tr class="invisibleL"><td class="invisibleL" colspan="2">University of Science and Technology of China (<a href="http://www.ustc.edu.cn">USTC</a>)</td></tr>
-<tr class="invisibleL"><td class="invisibleL" colspan="2">West Campus, Science and Technology Building, West Wing, Room 601</td></tr>
-<tr class="invisibleL"><td class="invisibleL" colspan="2">Huangshan Road/Feixi Road, Hefei 230027, Anhui, China</td></tr>
-<tr class="invisibleL"><td class="invisibleL">Web:</td><td class="invisibleL">&nbsp;<a href="http://www.it-weise.de/">http://www.it-weise.de/</a></td></tr>
-<tr class="invisibleL"><td class="invisibleL">Email:</td><td class="invisibleL">&nbsp;<a href="mailto:tweise@gmx.de">tweise@gmx.de</a>, <a href="mailto:tweise@ustc.edu.cn">tweise@ustc.edu.cn</a></td></tr>
+<tr class="invisibleL"><th class="invisibleL" colspan="2">Prof. Dr. Thomas Weise</th></tr>
+<tr class="invisibleL"><td class="invisibleL" colspan="2">Institute of Applied Optimization (<a href="http://iao.hfuu.edu.cn/">IAO</a>)</td></tr>
+<tr class="invisibleL"><td class="invisibleL" colspan="2">Faculty of Computer Science and Technology</td></tr>
+<tr class="invisibleL"><td class="invisibleL" colspan="2"><a href="http://www.hfuu.edu.cn">Hefei University</a></td></tr>
+<tr class="invisibleL"><td class="invisibleL" colspan="2">South Campus 2, Building 36, Office 324, Jinxiu Dadao 99</td></tr>
+<tr class="invisibleL"><td class="invisibleL" colspan="2">Hefei Economic and Technological Development Area</td></tr>
+<tr class="invisibleL"><td class="invisibleL" colspan="2">Hefei 230601, Anhui, China</td></tr>
+<tr class="invisibleL"><td class="invisibleL">Web:</td><td class="invisibleL">&nbsp;<a href="http://iao.hfuu.edu.cn/">http://iao.hfuu.edu.cn/</a></td></tr>
+<tr class="invisibleL"><td class="invisibleL">Email:</td><td class="invisibleL">&nbsp;<a href="mailto:tweise@gmx.de">tweise@gmx.de</a>, <a href="mailto:tweise@hfuu.edu.cn">tweise@hfuu.edu.cn</a></td></tr>
 </table>
 <%@include file="/includes/defaultFooter.jsp" %>

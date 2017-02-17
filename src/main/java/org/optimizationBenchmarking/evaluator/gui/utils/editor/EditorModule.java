@@ -1452,7 +1452,7 @@ public abstract class EditorModule<T> {
       encoded.append(nameText);
     }
     out.write(
-        ":</td><td class=\"addNameVal\"><input type=\"text\" size=\"60\" id=\"");//$NON-NLS-1$
+        ":</td><td class=\"addNameVal\"><input type=\"text\" size=\"50\" id=\"");//$NON-NLS-1$
     encoded.append(//
         Page.fieldNameFromPrefixAndName(prefix,
             EditorModule.NEW_FIELD_NAME));
@@ -1464,7 +1464,7 @@ public abstract class EditorModule<T> {
       encoded.append(valueText);
     }
     out.write(
-        ":</td><td class=\"addValueVal\"><input type=\"text\" size=\"60\" id=\"");//$NON-NLS-1$
+        ":</td><td class=\"addValueVal\"><input type=\"text\" size=\"50\" id=\"");//$NON-NLS-1$
 
     encoded.append(//
         Page.fieldNameFromPrefixAndName(prefix,
@@ -1524,7 +1524,7 @@ public abstract class EditorModule<T> {
       encoded.append(nameText);
     }
     out.write(
-        ":</td><td class=\"addNameVal\"><input type=\"text\" size=\"60\" id=\"");//$NON-NLS-1$
+        ":</td><td class=\"addNameVal\"><input type=\"text\" size=\"50\" id=\"");//$NON-NLS-1$
     encoded.append(//
         Page.fieldNameFromPrefixAndName(prefix,
             EditorModule.NEW_FIELD_NAME));

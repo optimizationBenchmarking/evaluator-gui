@@ -4,7 +4,7 @@
 
 	<groupId>org.optimizationBenchmarking</groupId>
 	<artifactId>evaluator-gui</artifactId>
-	<version>0.8.8</version>
+	<version>0.8.9</version>
 	<packaging>jar</packaging>
 	<name>The evaluator GUI.</name>
 	<description>The optimizationBenchmarking.org evaluator GUI.</description>
@@ -44,9 +44,9 @@
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
 		<junit.version>4.11</junit.version>
-		<utils-base.version>${project.version}</utils-base.version>
-		<evaluator-base.version>${utils-base.version}</evaluator-base.version>
-		<evaluator-evaluator.version>${evaluator-base.version}</evaluator-evaluator.version>
+		<utils-base.version>0.8.8</utils-base.version>
+		<evaluator-base.version>0.8.8</evaluator-base.version>
+		<evaluator-evaluator.version>0.8.9</evaluator-evaluator.version>
 		<jetty.version>9.2.10.v20150310</jetty.version>
 	</properties>
 
